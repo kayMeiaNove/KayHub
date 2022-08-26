@@ -3,7 +3,7 @@ msg = {
     "mensagem 2",
     "mensagem 3",
     "mensagem 4",
-	"mensagem 5",
+    "mensagem 5",
     "mensagem 6",
     "mensagem 7",
     "mensagem 8",
@@ -174,7 +174,7 @@ end
 while (true) do -- loop
 	wait(0.1)
 	if antafk == true then
-		print("afk")
+		-- print("afk")
 		game:GetService("Players").LocalPlayer.Idled:connect(function()
   		vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
   		wait(1)
