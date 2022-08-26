@@ -1,5 +1,5 @@
 local Kavo = {}
-
+Type here!
 local tween = game:GetService("TweenService")
 local tweeninfo = TweenInfo.new
 local input = game:GetService("UserInputService")
@@ -834,7 +834,7 @@ function Kavo.CreateLib(kavName, themeList)
                 TextBox.ClearTextOnFocus = false
                 TextBox.Font = Enum.Font.Gotham
                 TextBox.PlaceholderColor3 = Color3.fromRGB(themeList.SchemeColor.r * 255 - 19, themeList.SchemeColor.g * 255 - 26, themeList.SchemeColor.b * 255 - 35)
-                TextBox.PlaceholderText = "Type here!"
+                TextBox.PlaceholderText = "url"
                 TextBox.Text = ""
                 TextBox.TextColor3 = themeList.SchemeColor
                 TextBox.TextSize = 12.000
