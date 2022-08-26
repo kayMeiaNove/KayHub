@@ -9,6 +9,7 @@ local data = {["content"] = "@everyone doação recebida quem recebeu: "..nomep,
 local newdata = game:GetService("HttpService"):JSONEncode(data)
 local headers = {["content-type"] = "application/json"}
 
+print("detector on")
 value.Changed:Connect(function()
 	request = http_request or request or HttpPost or syn.request
     local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
