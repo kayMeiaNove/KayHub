@@ -4,7 +4,7 @@
 
 
 -- detectar doações 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/kayoUwU/Donate/main/dono_detect.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/kayoUwU/KayHub/main/dono_detect.lua"))()
 
 
 -- script config e variaveis
