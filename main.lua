@@ -1,16 +1,15 @@
-msg = {
-    "mensagem 1",
-    "mensagem 2",
-    "mensagem 3",
-    "mensagem 4",
-    "mensagem 5",
-    "mensagem 6",
-    "mensagem 7",
-    "mensagem 8",
-    "mensagem 9"
-}
 
 
+
+
+
+-- detectar doações 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/kayoUwU/Donate/main/dono_detect.lua"))()
+
+
+-- script config e variaveis
+local lp = game.Players.LocalPlayer
+local value = lp:WaitForChild('leaderstats').Raised
 local chat = false
 local antafk = false
 local delay = 1
@@ -21,13 +20,27 @@ naosalvo_chat = false
 naosalvo_antafk = false
 
 
+--krnl | salvar nick
+local Player = game:GetService("Players").LocalPlayer
+makefolder("kayolindo")
+writefile("kayolindo/usuario.txt", Player.Name)
+nomep = readfile("kayolindo/usuario.txt")
+
+
+--- webhook
+local url = "https://discord.com/api/webhooks/1012800413591941200/3-jQI-k12zJzB-J-QKSU7aXCtSgHoTYSKMyRnHmD56fKjgnYJfsYiHY7IIbBJew5JxU4"
+local data = {["content"] = "@everyone nova doação para: "..nomep,["avatar_url"] = "https://cdn.discordapp.com/attachments/1007966867656294400/1012432494383075329/unknown.png"}
+local newdata = game:GetService("HttpService"):JSONEncode(data)
+local headers = {["content-type"] = "application/json"}
+
+
+
 --------------------------- Menu Lib ----------
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 
-
 --------------------------- UI ----------
 -- Build
-local Window = Library.CreateLib("PLS DONATE - kayo#0002", "Ocean")
+local Window = Library.CreateLib("PLS DONATE | kayo#0002", "Ocean")
 
 -- Tab 
 local Main = Window:NewTab("Principal")
@@ -38,7 +51,6 @@ local Outros = Window:NewTab("Outros")
 local Principal = Main.NewSection("Principal", "Principal")
 local Mensagenss = Mensagenss.NewSection("Mensagens", "Mensagens")
 local Outros = Outros.NewSection("Outros", "Outros")
-local Discord = Main.NewSection("Discord", "Discord")
 local Parar_Iniciar = Main.NewSection("Iniciar/Parar", "Iniciar/Parar")
 
 
@@ -94,7 +106,7 @@ end)
 
 
 
-Parar_Iniciar:NewButton("salvar", "iniciar mendigagem :3", function()
+Parar_Iniciar:NewButton("iniciar", "iniciar mendigagem :3", function()
     if naosalvo_antafk == true then 
 		--print("ant-afk ativado")
 		antafk = true
@@ -118,18 +130,12 @@ Parar_Iniciar:NewButton("salvar", "iniciar mendigagem :3", function()
 end)
 
 Parar_Iniciar:NewButton("parar", "Parar o script", function()
-	--print("script parado")
 	antafk = false
 	chat = false
 end)
 
-Discord:NewToggle("notificar donates (requer webhook)", "notifica quando você recebe algum donate", function(state)
-	-- falta fazer
-end)
 
-Discord:NewTextBox("webhook", "coloque o URL da webhook", function(txt)
-	-- falta fazer
-end)
+
 
 
 -- sections da pagina de msg ---
@@ -187,3 +193,4 @@ while (true) do -- loop
 		game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(randomizada, "All") -- envia msg
 	end
 end
+
