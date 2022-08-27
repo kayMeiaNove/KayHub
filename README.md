@@ -1,3 +1,3 @@
 # Mendingar
 
-script feito totalmente por mim para a Nath e pra Mim
+script feito por mim, feito especialmente para minha amiga Nath
