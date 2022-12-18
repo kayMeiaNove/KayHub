@@ -1,7 +1,7 @@
 -- donate detect by kayo#0002
 
 
-local url = "https://discord.com/api/webhooks/1012800413591941200/3-jQI-k12zJzB-J-QKSU7aXCtSgHoTYSKMyRnHmD56fKjgnYJfsYiHY7IIbBJew5JxU4"
+local url = "webhook"
 
 local lp = game.Players.LocalPlayer
 local value = lp:WaitForChild('leaderstats').Raised
